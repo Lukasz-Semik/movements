@@ -1,0 +1,42 @@
+RESTFUL ROUTES
+
+PAMIETAJ O KOLEJNOSCIACH!
+
+name      url             verb   desc.
+===========================================
+INDEX    /dogs           GET    display a list of all dogs
+NEW      /dogs/new       GET    display form to make a new dog!
+CREATE   /dogs           POST   Add new dog to DB
+SHOW     /dogs/:id       GET    Shows info about one dog!
+EDIT     /dogs/:id/edit  PUT    Update the particular dog, then redirect somewhere
+DESTROY  /dogs/:id       DELETE Delete a particular dog, then redirect somewher
+
+PRZERABIAMY NAZWE CAMPGROUNDS NA index.ejs aby byc w REST.
+
+REST - Representational state transfer
+REST = a mapping between HTTP routs and CRUD - to jest wzorzec
+CRUD=create, reade, update, destroy
+
+RESTFUL routing -> pattern of routs we can follow.
+
+UWAGA! HTML nie wspiera metody PUT! HTML wspiera tylko GET i POST.
+W zwiazku z tym, potrzebujemy do tego celu czegos co pomoze nam nadpisac metode z formularza.
+<form class="ui form" action="/blogs/<% blog._id %>?_method=PUT" method="POST">
+INSTALUJEMY PAKIET: npm install --save method-override
+Pamietaj, ze moglibysmy dac poprostu innego routea! Ale wtedy nie bylibysmy w REST API.
+
+SANITYZACJA!!!!
+npm install --save express-sanitizer
+
+Nasze Routy:
+INDEX   /campgrounds     GET
+NEW     /campgrounds/new GET
+CREATE  /campgrounds     POST
+SHOW    /campgrounds/:id GET
+
+Nasze nested routsy:
+
+NEW     /campgrounds/:id/comments/new   GET
+CREATE  /campgrounds/:id/comments       POST
+
+w fromularzu, pokazuje nam druga strategie name. 
